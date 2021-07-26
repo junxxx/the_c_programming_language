@@ -1,4 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node
+{
+    int *lements
+} node ;
+
+void displadyElements(int a)
+{
+    printf("Value of a is %d\n", a);
+}
+
+int getAge() 
+{
+    return 32;
+}
 
 int main(int argc, const char** argv)
 {
@@ -20,5 +36,22 @@ int main(int argc, const char** argv)
     for (int i = 0; i < 10; i++){
         printf("%d\n", a[i]);
     }
+
+    int *item;
+    item = malloc(sizeof(int) * 10);
+    item[0] = 20;
+    item[1] = 10;
+    printf("elements :%d %d\n", item[1], item[0]);
+
+    printf("apple %d\n",__APPLE__);
+
+    void (*func)(int) = &displadyElements;
+
+    (*func)(999);
+
+    int (*getAgeFunc)() = &getAge;
+
+    printf("get age return = %d\n", (*getAgeFunc)());
+
     return 0;
 }
